@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  ingestion:
+    build:
+      context: ./src/data_ingestion 
+      dockerfile: dockerfile
+    networks:
+      - rag-bb
+    depends_on:
+    - chroma-server
+  
+  chroma-server:
+    image: chromadb/chroma
+    networks:
+      - rag-bb
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../data:/chroma/chroma
+    environment:
+      - ALLOW_RESET=TRUE
+      - IS_PERSISTENT=TRUE
+
+networks:
+  rag-bb:
+    driver: bridge
