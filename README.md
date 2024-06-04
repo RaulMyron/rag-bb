@@ -1,4 +1,4 @@
-# This is RAG LMM generator
+# This is a RAG LMM  open source via openAI chat gpt
 
 
 chromadb running in docker
