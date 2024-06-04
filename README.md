@@ -1,3 +1,6 @@
+# This is RAG LMM generator
+
+
 chromadb running in docker
 
 
